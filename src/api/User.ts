@@ -1,6 +1,6 @@
 import { PolytoriaAPI, polyFetch } from "../index.js";
 
-type UserSearchOptions = {
+export type UserSearchOptions = {
     search?: string,
     sort?: "id" | "username" | "registeredAt" | "lastSeenAt",
     order?: "asc" | "desc",
@@ -8,7 +8,7 @@ type UserSearchOptions = {
     limit?: number,
 }
 
-type User = {
+export type User = {
     id: number,
     username: string,
     description: string,
@@ -32,10 +32,10 @@ type User = {
     assetSales: number,
 }
 
-type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileVisits" | "forumPosts" | "assetSales">;
-type UserSearchResponse = UserSearchResponseUser[];
+export type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileVisits" | "forumPosts" | "assetSales">;
+export type UserSearchResponse = UserSearchResponseUser[];
 
-type LeaderboardUser = Pick<User, "id" | "username"> & {
+export type LeaderboardUser = Pick<User, "id" | "username"> & {
     avatarID: string,
     profileUrl: string,
     avatarUrl: string,
@@ -43,18 +43,18 @@ type LeaderboardUser = Pick<User, "id" | "username"> & {
     rank: number,
 }
 
-type FriendsOptions = {
+export type FriendsOptions = {
     id: number,
     page?: number,
     limit?: number,
 }
 
-type Friendship = {
+export type Friendship = {
     acceptedAt: string,
     user: Pick<User, "id" | "username"> & {thumbnail: string},
 }
 
-type FriendsResponse = Friendship[];
+export type FriendsResponse = Friendship[];
 
 export class Users {
     //#region Direct Wrappers
