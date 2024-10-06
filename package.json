@@ -1,0 +1,21 @@
+{
+  "name": "polytoria-api",
+  "version": "1.0.0",
+  "description": "Polytoria API Wrapper",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node test.mjs"
+  },
+  "author": "retrievaaaa/polyflip & Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "typescript": "^5.6.2"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
