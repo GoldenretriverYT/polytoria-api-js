@@ -27,12 +27,12 @@ export type User = {
 
     netWorth: number,
     placeVisits: number,
-    profileVisits: number,
+    profileViews: number,
     forumPosts: number,
     assetSales: number,
 }
 
-export type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileVisits" | "forumPosts" | "assetSales">;
+export type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileViews" | "forumPosts" | "assetSales">;
 export type UserSearchResponse = UserSearchResponseUser[];
 
 export type LeaderboardUser = Pick<User, "id" | "username"> & {
