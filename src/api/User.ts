@@ -56,7 +56,7 @@ type Friendship = {
 
 type FriendsResponse = Friendship[];
 
-export default class Users {
+export class Users {
     //#region Direct Wrappers
     static async getUsers(options: UserSearchOptions): Promise<UserSearchResponse> {
         if(options.limit && options.limit > 100) {
