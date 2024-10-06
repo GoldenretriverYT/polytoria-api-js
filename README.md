@@ -6,3 +6,6 @@ A wrapper around Polytorias api.
 ```
 npm install polytoria-api
 ```
+
+## Docs
+https://goldenretriveryt.github.io/polytoria-api-js/
