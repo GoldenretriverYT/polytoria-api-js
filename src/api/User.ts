@@ -1,4 +1,4 @@
-import PolytoriaAPI, { polyFetch } from "../index.js";
+import { PolytoriaAPI, polyFetch } from "../index.js";
 
 type UserSearchOptions = {
     search?: string,

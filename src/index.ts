@@ -1,4 +1,4 @@
-export default class PolytoriaAPI {
+export class PolytoriaAPI {
     /**
      * This will handle rate limits for you.
      * In case a ratelimit is encountered, the request will be retried every 250ms + (retryCount * 250ms) until it succeeds.
@@ -62,3 +62,6 @@ export async function log(...args: any[]) {
         console.log("[PolytoriaAPI]", ...args);
     }
 }
+
+export * from "./api/User.js";
+
