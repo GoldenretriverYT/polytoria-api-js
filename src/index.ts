@@ -57,6 +57,11 @@ export async function polyFetch(url: string, options: RequestInit = {}): Promise
     }
 }
 
+/**
+ * 
+ * @param args 
+ * @internal
+ */
 export async function log(...args: any[]) {
     if (PolytoriaAPI.debug) {
         console.log("[PolytoriaAPI]", ...args);
