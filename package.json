@@ -1,7 +1,7 @@
 {
   "name": "polytoria-api",
-  "version": "1.0.0",
-  "description": "Polytoria API Wrapper",
+  "version": "1.0.1",
+  "description": "Modern Polytoria API Wrapper that works with the \"new\" site.",
   "type": "module",
   "scripts": {
     "build": "tsc",
@@ -17,5 +17,8 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "dotenv": "^16.4.5"
-  }
+  },
+  "files": [
+    "dist", "LICENSE", "README.md", "package.json", "package-lock.json"
+  ]
 }
