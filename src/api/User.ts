@@ -110,21 +110,19 @@ export class Users {
         let usersRemaining = options.limit;
 
         const modifiedOptions = {...options};
-        modifiedOptions.limit = 100;
 
         while(true) {
             const body = await this.getUsers({...modifiedOptions, page});
             users.push(...body);
 
             usersRemaining -= 100;
-            modifiedOptions.limit = Math.min(usersRemaining, 100);
             
             if(body.length < 100 || usersRemaining <= 0) break;
             
             page++;
         }
 
-        return users;
+        return users.slice(0, options.limit);
     }
 
     /**
