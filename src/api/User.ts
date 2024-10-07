@@ -12,6 +12,7 @@ export type User = {
     id: number,
     username: string,
     description: string,
+    signature: string,
     thumbnail: {
         avatar: string,
         icon: string,
@@ -32,7 +33,7 @@ export type User = {
     assetSales: number,
 }
 
-export type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileViews" | "forumPosts" | "assetSales">;
+export type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileViews" | "forumPosts" | "assetSales" | "signature">;
 export type UserSearchResponse = UserSearchResponseUser[];
 
 export type LeaderboardUser = Pick<User, "id" | "username"> & {
