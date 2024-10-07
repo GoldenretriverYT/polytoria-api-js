@@ -111,6 +111,7 @@ export class Users {
         let usersRemaining = options.limit;
 
         const modifiedOptions = {...options};
+        modifiedOptions.limit = 100;
 
         while(true) {
             const body = await this.getUsers({...modifiedOptions, page});
