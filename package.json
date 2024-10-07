@@ -1,6 +1,6 @@
 {
   "name": "polytoria-api",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Modern Polytoria API Wrapper that works with the \"new\" site.",
   "type": "module",
   "scripts": {
