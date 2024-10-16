@@ -17,6 +17,11 @@ export class PolytoriaAPI {
      */
     static ptAuthCookie: string | null = null;
 
+    /**
+     * Optional user agent to use for the API.
+     */
+    static userAgent: string | null = null;
+
     static debug = true;
 }
 
@@ -29,6 +34,10 @@ export async function polyFetch(url: string, options: RequestInit = {}): Promise
 
     if (PolytoriaAPI.ptAuthCookie) {
         headers.set("Cookie", `PT_AUTH=${PolytoriaAPI.ptAuthCookie}`);
+    }
+
+    if (PolytoriaAPI.userAgent) {
+        headers.set("User-Agent", PolytoriaAPI.userAgent);
     }
 
     let retryCount = 0;
@@ -69,4 +78,5 @@ export async function log(...args: any[]) {
 }
 
 export * from "./api/User.js";
+export * from "./types.js";
 

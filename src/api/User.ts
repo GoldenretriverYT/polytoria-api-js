@@ -1,61 +1,4 @@
-import { PolytoriaAPI, polyFetch } from "../index.js";
-
-export type UserSearchOptions = {
-    search?: string,
-    sort?: "id" | "username" | "registeredAt" | "lastSeenAt",
-    order?: "asc" | "desc",
-    page?: number,
-    limit?: number,
-}
-
-export type User = {
-    id: number,
-    username: string,
-    description: string,
-    signature: string,
-    thumbnail: {
-        avatar: string,
-        icon: string,
-    },
-    
-    playing: number | null,
-    
-    membershipType: "free" | "plus" | "plusDeluxe",
-    isStaff: boolean,
-    
-    registeredAt: string,
-    lastSeenAt: string,
-
-    netWorth: number,
-    placeVisits: number,
-    profileViews: number,
-    forumPosts: number,
-    assetSales: number,
-}
-
-export type UserSearchResponseUser = Omit<User, "netWorth" | "placeVisits" | "profileViews" | "forumPosts" | "assetSales" | "signature">;
-export type UserSearchResponse = UserSearchResponseUser[];
-
-export type LeaderboardUser = Pick<User, "id" | "username"> & {
-    avatarID: string,
-    profileUrl: string,
-    avatarUrl: string,
-    statistic: number,
-    rank: number,
-}
-
-export type FriendsOptions = {
-    id: number,
-    page?: number,
-    limit?: number,
-}
-
-export type Friendship = {
-    acceptedAt: string,
-    user: Pick<User, "id" | "username"> & {thumbnail: string},
-}
-
-export type FriendsResponse = Friendship[];
+import { FriendsOptions, FriendsResponse, GetUserBadgesOptions, LeaderboardUser, PolytoriaAPI, User, UserBadgesResponse, UserSearchOptions, UserSearchResponse, UserSearchResponseUser, polyFetch } from "../index.js";
 
 export class Users {
     //#region Direct Wrappers
@@ -94,6 +37,17 @@ export class Users {
         }) as {friends: FriendsResponse};
 
         return body.friends;
+    }
+
+    static async getUserBadges(options: GetUserBadgesOptions): Promise<UserBadgesResponse> {
+        const body = await polyFetch(`https://api.polytoria.com/v1/users/${options.id}/badges?` + new URLSearchParams(options as any), {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }) as {badges: UserBadgesResponse};
+
+        return body.badges;
     }
     //#endregion
 
